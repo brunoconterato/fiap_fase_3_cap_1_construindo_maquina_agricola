@@ -6,6 +6,7 @@
 #define LDR_PIN 35
 #define DHT_PIN 17
 #define DHT_TYPE DHT22   // DHT sensor type is DHT22
+#define RELE_PIN 21  // Pino de controle do relé
 
 const double rl10 = 50000.0; // LDR resistance at 10 lux
 const double ldrGamma = 0.7;
@@ -16,6 +17,7 @@ void setup() {
   pinMode(P_green_buttonPin, INPUT_PULLUP);
   pinMode(K_blue_buttonPin, INPUT_PULLUP);
   pinMode(LDR_PIN, INPUT);
+  pinMode(RELE_PIN, OUTPUT);  // Configura o pino do relé como saída
 
   // put your setup code here, to run once:
   Serial.begin(115200);
@@ -39,9 +41,15 @@ void loop() {
     Serial.println("Button K Not Pressed");
   }
 
-  read_ldr();
+  double pH = read_ldr();
 
-  read_dht();
+  double humidity = read_dht();
+
+  if (humidity < 50.0) {
+    liga_rele();
+  } else {
+    desliga_rele();
+  }
 
   Serial.println();
 
@@ -77,4 +85,16 @@ double read_dht() {
         Serial.println(" %");
         return humidity;
     }
+}
+
+void liga_rele() {
+  // Liga o relé (ativa a bomba de água)
+  Serial.println(("Ligando rele"));
+  digitalWrite(RELE_PIN, HIGH);
+}
+
+void desliga_rele() {
+  // Desliga o relé (ativa a bomba de água)
+  Serial.println(("Desligando rele"));
+  digitalWrite(RELE_PIN, LOW);
 }
