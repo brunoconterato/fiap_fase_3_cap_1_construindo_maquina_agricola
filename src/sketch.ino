@@ -1,9 +1,16 @@
+#include <DHT.h>
+#include <cmath>  // For NAN
+
 #define P_green_buttonPin 26
 #define K_blue_buttonPin 22
 #define LDR_PIN 35
+#define DHT_PIN 17
+#define DHT_TYPE DHT22   // DHT sensor type is DHT22
 
 const double rl10 = 50000.0; // LDR resistance at 10 lux
 const double ldrGamma = 0.7;
+
+DHT dht(DHT_PIN, DHT_TYPE);
 
 void setup() {
   pinMode(P_green_buttonPin, INPUT_PULLUP);
@@ -32,8 +39,9 @@ void loop() {
     Serial.println("Button K Not Pressed");
   }
 
-  Serial.print("Light: " + String(read_ldr()));
+  read_ldr();
 
+  read_dht();
 
   Serial.println();
 
@@ -56,4 +64,17 @@ double read_ldr() {
     Serial.print("Luminosidade: ");
     Serial.println(light_level);
     return light_level;
+}
+
+double read_dht() {
+    double humidity = dht.readHumidity();
+    if (isnan(humidity)) {
+        Serial.println("Erro ao ler o sensor DHT22");
+        return NAN;
+    } else {
+        Serial.print("Umidade: ");
+        Serial.print(humidity);
+        Serial.println(" %");
+        return humidity;
+    }
 }
