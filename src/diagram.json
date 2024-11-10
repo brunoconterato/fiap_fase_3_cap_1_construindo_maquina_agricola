@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Bruno Conterato",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 121.4,
+      "left": -134.4,
+      "attrs": { "color": "green", "key": "p" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 44.6,
+      "left": 220.8,
+      "attrs": { "color": "blue", "key": "k" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "btn1:1.r", "esp:26", "green", [ "v0" ] ],
+    [ "btn1:2.r", "esp:GND.1", "green", [ "h0" ] ],
+    [ "btn2:2.l", "esp:GND.3", "green", [ "h0" ] ],
+    [ "btn2:1.l", "esp:22", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
