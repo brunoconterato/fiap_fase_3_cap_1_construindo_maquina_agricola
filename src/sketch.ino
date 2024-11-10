@@ -45,7 +45,7 @@ void loop() {
 
   double humidity = read_dht();
 
-  if (humidity < 50.0) {
+  if (deveIrrigar(K_buttonState == LOW, P_buttonState == LOW, pH, humidity)) {
     liga_rele();
   } else {
     desliga_rele();
@@ -97,4 +97,35 @@ void desliga_rele() {
   // Desliga o relé (ativa a bomba de água)
   Serial.println(("Desligando rele"));
   digitalWrite(RELE_PIN, LOW);
+}
+
+// Função que retorna 'true' ou 'false' para irrigação
+bool deveIrrigar(bool K, bool P, float pH, float humidity) {
+  // Limites para pH e umidade
+  float pH_min = 5.5;  // pH mínimo aceitável para o solo
+  float pH_max = 7.5;  // pH máximo aceitável para o solo
+  float humidity_threshold = 30.0;  // Umidade mínima aceitável (em %)
+
+  // Lógica de decisão para irrigação
+  if (humidity < humidity_threshold) {
+    // Se a umidade estiver abaixo do limite, irrigar imediatamente
+    Serial.println("Irrigação recomendada. Motivo: baixa umidade.");
+    return true;
+  }
+
+  if (!K || !P) {
+    // Se os níveis de Potássio ou Fósforo estiverem baixos, é necessário irrigar para ajudar na absorção de nutrientes
+    Serial.println("Irrigação recomendada. Motivo: baixo nível de K ou P.");
+    return true;
+  }
+
+  if (pH < pH_min || pH > pH_max) {
+    // Se o pH estiver fora do intervalo ideal (5.5-7.5), irrigar para tentar corrigir o pH
+    Serial.println("Irrigação recomendada. Motivo: pH fora da faixa recomendada.");
+    return true;
+  }
+
+  // Se todos os parâmetros estiverem dentro do intervalo ideal, não é necessário irrigar
+    Serial.println("Irrigação não recomendada. Motivo: todos os parâmetros normais.");
+  return false;
 }
