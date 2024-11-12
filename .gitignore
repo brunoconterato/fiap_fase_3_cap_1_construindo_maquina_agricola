@@ -1,2 +1,3 @@
 venv/
 src/farmtech.db
+__pycache__/
