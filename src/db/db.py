@@ -1,33 +1,46 @@
 import sqlite3
+from datetime import datetime
+import os
+
+DB_PATH = "src/farmtech.db"
+
 
 def get_tipos_sensores():
-    with sqlite3.connect('src/farmtech.db') as conn:
+    with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Tipo_Sensor")
         return cursor.fetchall()
 
+
 def get_sensores():
-    with sqlite3.connect('src/farmtech.db') as conn:
+    with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM Sensor")
         return cursor.fetchall()
-
-def main():
-    # Conectar ao banco de dados
-    with sqlite3.connect('src/farmtech.db') as conn:
+    
+    
+def get_medicoes():
+    with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Medicao_Sensor")
+        return cursor.fetchall()
 
-        # Consultar tipos de sensores
-        tipos = get_tipos_sensores(cursor)
-        print("Tipos de Sensores:")
-        for tipo in tipos:
-            print(tipo)
 
-        # Consultar sensores
-        sensores = get_sensores(cursor)
-        print("\nSensores:")
-        for sensor in sensores:
-            print(sensor)
+def insert_medicao_sensor(id_sensor, valor):
+    # Check id_sensor exists
+    sensors = get_sensores()
+    sensor_ids = [sensor[0] for sensor in sensors]
+    if id_sensor not in sensor_ids:
+        raise ValueError("Sensor ID not found.")
 
-if __name__ == "__main__":
-    main()
+    # Insert data into Medicao_Sensor
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            INSERT INTO Medicao_Sensor (id_sensor, valor, data_hora)
+            VALUES (?, ?, ?)
+            """,
+            (id_sensor, valor, datetime.now()),
+        )
+        conn.commit()
