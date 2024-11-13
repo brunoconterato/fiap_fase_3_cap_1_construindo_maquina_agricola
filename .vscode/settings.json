@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:fiap_fase_3_cap_1_construindo_maquina_agricola}/src/farmtech.db",
+            "name": "agr"
+        }
+    ]
+}
