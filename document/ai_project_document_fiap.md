@@ -62,12 +62,6 @@ Para o desenvolvimento do projeto, foi adotada uma metodologia baseada nas segui
 ### 3.3. Treinamento e Teste
 Não há modelo de IA para treinamento, pois o sistema opera com lógica de regras para tomada de decisão de irrigação. Testes manuais foram realizados no simulador Wokwi, e dados foram coletados para armazenar no banco de dados.
 
-### 3.4 Evolução do Sistema Eletrônico
-
-Inicialmente, o sistema eletrônico foi desenvolvido em **MicroPython** para facilitar a prototipagem e a validação dos sensores e dos controles do relé. Essa versão inicial foi implementada e testada no [Wokwi](https://wokwi.com/projects/412840257175989249) e permitiu ajustes rápidos no código e nos componentes antes de avançar para uma implementação mais robusta.
-
-Após os testes bem-sucedidos na versão MicroPython, o sistema foi traduzido para **C++** ([versão final no Wokwi](https://wokwi.com/projects/414104064226887681)), que oferece maior desempenho e flexibilidade para controle do hardware em nível mais baixo. A versão final em C++ incluiu ajustes adicionais para otimizar o funcionamento do relé e a integração com os sensores, garantindo a confiabilidade do sistema.
-
 ## 4. Resultados e Avaliações
 
 ### 4.1. Análise dos Resultados

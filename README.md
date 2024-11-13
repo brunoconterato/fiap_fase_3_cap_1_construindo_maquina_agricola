@@ -6,9 +6,9 @@
 
 <br>
 
-# Nome do projeto
+# Sistema de Irrigação Automatizado
 
-## Nome do grupo
+## Sobre o grupo
 
 ## 👨‍🎓 Integrantes: 
 - <a href="https://www.linkedin.com/in/brunoconterato">Bruno Conterato</a> 
@@ -33,6 +33,8 @@ O projeto foi desenvolvido ao longo de várias fases, cada uma agregando novas f
 Para mais informações, acesse:
 - [Documentação do projeto](./document/ai_project_document_fiap.md)
 - [Lógica de irrigação](./document/other/irrigation_logic.md)
+- [Diagrama de conexão dos sensores](./document/other/sensor_diagram.md)
+- [Código-fonte no Wokwi](https://wokwi.com/projects/414146597880886273)
 
 ---
 
