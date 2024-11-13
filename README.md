@@ -29,6 +29,11 @@ Este projeto consiste em um sistema automatizado de monitoramento e controle de 
 
 O projeto foi desenvolvido ao longo de várias fases, cada uma agregando novas funcionalidades e refinando o sistema. O código é modular, com cada função encapsulada em arquivos específicos. A automação permite reduzir o desperdício de água e otimizar o crescimento das culturas, contribuindo para práticas agrícolas mais sustentáveis e eficientes.
 
+
+Para mais informações, acesse:
+- [Documentação do projeto](./document/ai_project_document_fiap.md)
+- [Lógica de irrigação](./document/other/irrigation_logic.md)
+
 ---
 
 ## 📁 Estrutura de pastas

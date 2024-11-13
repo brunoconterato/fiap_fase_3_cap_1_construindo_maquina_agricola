@@ -56,7 +56,7 @@ Para o desenvolvimento do projeto, foi adotada uma metodologia baseada nas segui
 - **Simulador**: Wokwi para o circuito eletrônico.
 
 ### 3.2. Modelagem e Algoritmos
-- **Algoritmo de Decisão de Irrigação**: A função `deveIrrigar` toma a decisão com base nos valores dos sensores e nos parâmetros definidos para umidade, pH e nutrientes. Este modelo básico considera irrigação sempre que a umidade estiver abaixo de 30%, o pH fora do intervalo de 5.5 a 7.5, ou a presença de deficiência em K ou P.
+- **Algoritmo de Decisão de Irrigação**: A função `deveIrrigar` toma a decisão com base nos valores dos sensores e nos parâmetros definidos para umidade, pH e nutrientes. Este modelo básico considera irrigação sempre que a umidade estiver abaixo de 30%, o pH fora do intervalo de 5.5 a 7.5, ou a presença de deficiência em K ou P. Clique [aqui](./other/irrigation_logic.md) para mais detalhes sobre a lógica de irrigação. 
 - **CRUD no Banco de Dados**: O sistema implementa operações de consulta e inserção de leituras de sensores e status da bomba d’água. Foi criada uma estrutura de tabelas para organizar os dados dos sensores, medições e status do relé.
 
 ### 3.3. Treinamento e Teste
