@@ -11,41 +11,52 @@
 ## Nome do grupo
 
 ## 👨‍🎓 Integrantes: 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 1</a>
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 2</a>
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 3</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 4</a> 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do integrante 5</a>
+- <a href="https://www.linkedin.com/in/brunoconterato">Bruno Conterato</a> 
+- <a href="https://www.linkedin.com/in/willianpmarques">Willian Pinheiro Marques</a> 
+- <a href="https://www.linkedin.com/in/robertobesser">Roberto Besser</a>
+- <a href="https://www.linkedin.com/in/ludimila-vi">Ludimila Vitorino</a>
 
 ## 👩‍🏫 Professores:
 ### Tutor(a) 
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do Tutor</a>
+- <a href="https://www.linkedin.com/in/lucas-gomes-moreira-15a8452a/">Lucas Gomes Moreira</a>
 ### Coordenador(a)
-- <a href="https://www.linkedin.com/company/inova-fusca">Nome do Coordenador</a>
+- <a href="https://www.linkedin.com/in/profandregodoi/">André Godoi</a>
 
 
 ## 📜 Descrição
 
-*Descreva seu projeto com base no texto do PBL (até 600 palavras)*
+Este projeto consiste em um sistema automatizado de monitoramento e controle de irrigação de plantações. Desenvolvido para facilitar o gerenciamento de grandes áreas agrícolas, o sistema utiliza sensores para medir parâmetros ambientais como umidade do solo e temperatura, ajustando automaticamente a irrigação conforme as necessidades da plantação. Inicialmente, o sistema eletrônico foi desenvolvido em **MicroPython** para rápida prototipagem, sendo posteriormente traduzido para **C++** para otimizar desempenho. Na versão final, implementada em um microcontrolador simulado no Wokwi, o sistema combina sensores de umidade, relés para ativar/desativar bombas de água, e uma interface de menu para configurações manuais.
 
+O projeto foi desenvolvido ao longo de várias fases, cada uma agregando novas funcionalidades e refinando o sistema. O código é modular, com cada função encapsulada em arquivos específicos. A automação permite reduzir o desperdício de água e otimizar o crescimento das culturas, contribuindo para práticas agrícolas mais sustentáveis e eficientes.
+
+---
 
 ## 📁 Estrutura de pastas
 
 Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
-- <b>.github</b>: Nesta pasta ficarão os arquivos de configuração específicos do GitHub que ajudam a gerenciar e automatizar processos no repositório.
+- **.github**: Pasta que poderá ser usada para arquivos de configuração específicos do GitHub, como workflows e ações, para automatizar processos no repositório.
 
-- <b>assets</b>: aqui estão os arquivos relacionados a elementos não-estruturados deste repositório, como imagens.
+- **assets**: Contém elementos visuais e não-estruturados do repositório. Por exemplo, `logo-fiap.png`, a imagem que representa a marca do projeto.
 
-- <b>config</b>: Posicione aqui arquivos de configuração que são usados para definir parâmetros e ajustes do projeto.
+- **config**: Local onde podem ser posicionados arquivos de configuração específicos do projeto, como variáveis de ambiente, mas atualmente não está presente na estrutura fornecida.
 
-- <b>document</b>: aqui estão todos os documentos do projeto que as atividades poderão pedir. Na subpasta "other", adicione documentos complementares e menos importantes.
+- **document**: Armazena a documentação detalhada do projeto. O arquivo principal é o `ai_project_document_fiap.md`, que descreve as funcionalidades e arquitetura do sistema. Na subpasta **other**, há documentos adicionais, como `irrigation_logic.md`, que explica a lógica de irrigação implementada.
 
-- <b>scripts</b>: Posicione aqui scripts auxiliares para tarefas específicas do seu projeto. Exemplo: deploy, migrações de banco de dados, backups.
+- **scripts**: Inclui scripts auxiliares para tarefas específicas, como `initialize_db.py`, que configura o banco de dados inicial do projeto, facilitando o deploy e testes de ambiente.
 
-- <b>src</b>: Todo o código fonte criado para o desenvolvimento do projeto ao longo das 7 fases.
+- **src**: Contém todo o código fonte do projeto, organizado em subpastas para facilitar a navegação. Principais subpastas e arquivos:
+  - **db**: Inclui `db.py`, que lida com as operações e conexões com o banco de dados.
+  - **farmtech.db**: Banco de dados SQLite que armazena as informações persistentes do sistema, como dados de sensores e registros de irrigação.
+  - **main.py**: Script principal que inicializa o sistema e orquestra as operações do projeto.
+  - **menu**: Inclui `menu.py`, que implementa a interface de menu do usuário, permitindo configurações e ajustes no sistema de irrigação.
+  - **Wokwi**: Contém arquivos para simulação no ambiente Wokwi:
+    - `diagram.json`: Diagrama que modela o circuito eletrônico.
+    - `libraries.txt`: Dependências de bibliotecas usadas no código.
+    - `sketch.ino`: Código final em C++ para controle dos sensores e relés.
+    - `wokwi-project.txt`: Descrição e metadados do projeto no Wokwi.
 
-- <b>README.md</b>: arquivo que serve como guia e explicação geral sobre o projeto (o mesmo que você está lendo agora).
+- **README.md**: Documento atual que serve como guia e explicação geral sobre o projeto, facilitando a compreensão e navegação da estrutura.
 
 ## 🔧 Como executar o código
 
