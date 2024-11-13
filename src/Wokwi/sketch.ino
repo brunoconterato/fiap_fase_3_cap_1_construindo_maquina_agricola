@@ -1,5 +1,4 @@
 #include <DHT.h>
-#include <cmath>  // For NAN
 
 #define P_green_buttonPin 26
 #define K_blue_buttonPin 22
@@ -12,6 +11,8 @@ const double rl10 = 50000.0; // LDR resistance at 10 lux
 const double ldrGamma = 0.7;
 
 DHT dht(DHT_PIN, DHT_TYPE);
+
+bool isBombaLigada = false;
 
 void setup() {
   pinMode(P_green_buttonPin, INPUT_PULLUP);
@@ -51,8 +52,6 @@ void loop() {
     desliga_rele();
   }
 
-  Serial.println();
-
   delay(1000);
 }
 
@@ -89,13 +88,23 @@ double read_dht() {
 
 void liga_rele() {
   // Liga o relé (ativa a bomba de água)
-  Serial.println(("Ligando rele"));
+  if (!isBombaLigada) {
+    isBombaLigada = true;
+    Serial.println(("Acionando bomba."));
+  } else {
+    Serial.println(("Bomba se mantém acionada."));
+  }
   digitalWrite(RELE_PIN, HIGH);
 }
 
 void desliga_rele() {
   // Desliga o relé (ativa a bomba de água)
-  Serial.println(("Desligando rele"));
+  if (isBombaLigada) {
+    isBombaLigada = false;
+    Serial.println(("Desligando bomba."));
+  } else {
+    Serial.println(("Bomba se mantém desligada."));
+  }
   digitalWrite(RELE_PIN, LOW);
 }
 
@@ -126,6 +135,6 @@ bool deveIrrigar(bool K, bool P, float pH, float humidity) {
   }
 
   // Se todos os parâmetros estiverem dentro do intervalo ideal, não é necessário irrigar
-    Serial.println("Irrigação não recomendada. Motivo: todos os parâmetros normais.");
+  Serial.println("Irrigação não recomendada. Motivo: todos os parâmetros normais.");
   return false;
 }
