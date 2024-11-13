@@ -1,3 +1,4 @@
+from src.menu.menu import run_menu
 from src.db.db import get_sensores, get_tipos_sensores
 
 
@@ -15,4 +16,4 @@ def main():
         print(sensor)
 
 if __name__ == "__main__":
-    main()
+    run_menu()
