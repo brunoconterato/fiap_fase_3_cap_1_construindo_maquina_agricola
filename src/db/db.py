@@ -44,3 +44,21 @@ def insert_medicao_sensor(id_sensor, valor):
             (id_sensor, valor, datetime.now()),
         )
         conn.commit()
+
+def get_status_rele():
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Status_Rele")
+        return cursor.fetchall()
+    
+def insert_status_rele(estado):
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute(
+            """
+            INSERT INTO Status_Rele (estado, data_hora)
+            VALUES (?, ?)
+            """,
+            (estado, datetime.now()),
+        )
+        conn.commit()

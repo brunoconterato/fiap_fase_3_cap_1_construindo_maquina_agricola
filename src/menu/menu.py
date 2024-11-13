@@ -1,5 +1,5 @@
 from typing import Callable, TypedDict, Dict
-from src.db.db import get_medicoes, get_sensores, get_tipos_sensores, insert_medicao_sensor
+from src.db.db import get_medicoes, get_sensores, get_status_rele, get_tipos_sensores, insert_medicao_sensor, insert_status_rele
 
 
 def print_tipos_sensores():
@@ -41,7 +41,26 @@ def add_medicao_sensor():
             print(f"An error occurred: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")
+        
+def print_relay_status():
+    status = get_status_rele()
+    print("\nRelay status:")
+    for s in status:
+        print(s)
 
+def add_status_rele():
+    try:
+        # Get user input for relay status
+        estado = bool(input("\nEnter the relay status (0 or 1): "))
+
+        # Insert data into Status_Rele
+        try:
+            insert_status_rele(estado)
+            print("Relay status added successfully.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 class MenuItem(TypedDict):
     display_text: str
@@ -61,7 +80,9 @@ menu_options: MenuOptions = {
         "display_text": "Enter sensor data",
         "function": add_medicao_sensor,
     },
-    9: {"display_text": "Exit", "function": lambda: print("Exiting...")},
+    5: {"display_text": "List relay status", "function": print_relay_status},
+    6: {"display_text": "Enter relay status", "function": add_status_rele},
+    7: {"display_text": "Exit", "function": lambda: print("Exiting...")},
 }
 
 
@@ -78,7 +99,7 @@ def run_menu():
         if choice.isdigit():
             choice = int(choice)
             if choice in menu_options:
-                if choice == 9:
+                if choice == 7:
                     print(
                         "\nOption selected: ",
                         choice,
