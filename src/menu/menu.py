@@ -13,29 +13,35 @@ import pandas as pd
 
 def print_tipos_sensores():
     tipos = get_tipos_sensores()
+    tipos_df = pd.DataFrame(tipos, columns=["id_tipo", "nome", "descricao"])
     print("\nTypes of sensors:")
-    for tipo in tipos:
-        print(tipo)
+    print(tipos_df.to_string(index=False))
 
 
 def print_sensores():
     sensores = get_sensores()
+    sensores_df = pd.DataFrame(
+        sensores, columns=["id_sensor", "id_tipo", "nome_sensor", "localizacao"]
+    )
     print("\nSensors:")
-    for sensor in sensores:
-        print(sensor)
+    print(sensores_df.to_string(index=False))
 
 
 def print_medicoes():
     medicoes = get_medicoes()
-    print("\nSensor data:")
-    for medicao in medicoes:
-        print(medicao)
+    medicoes_df = pd.DataFrame(
+        medicoes, columns=["id_medicao", "id_sensor", "valor", "data_hora"]
+    )
+    print("\nMeasures data:")
+    print(medicoes_df.to_string(index=False))
 
 def print_relays():
     relays = get_relays()
+    relays_df = pd.DataFrame(
+        relays, columns=["id_rele", "nome_rele", "localizacao"]
+    )
     print("\nRelays:")
-    for relay in relays:
-        print(relay)
+    print(relays_df.to_string(index=False))
 
 # Function to add data to Medicao_Sensor
 def add_medicao_sensor():
@@ -60,17 +66,16 @@ def add_medicao_sensor():
 
 def print_relay_status():
     status = get_status_rele()
+    status_df = pd.DataFrame(status, columns=["id_status", "id_rele", "estado", "data_hora"])
     print("\nRelay status:")
-    for s in status:
-        print(s)
+    print(status_df.to_string(index=False))
 
 def add_status_rele():
     try:
         # Get user input for relay status
         relays = get_relays()
         print("Available relays:")
-        for relay in relays:
-            print(relay)
+        print_relays()
         
         relay_id = int(input("\nEnter the relay ID: "))
         estado = bool(int(input("\nEnter the relay status (0 or 1): ")))
@@ -124,11 +129,11 @@ menu_options: MenuOptions = {
     2: {"display_text": "List available sensors", "function": print_sensores},
     3: {"display_text": "List available relays", "function": print_relays},
     4: {"display_text": "List sensor data", "function": print_medicoes},
-    5: {
+    5: {"display_text": "List relay status", "function": print_relay_status},
+    6: {
         "display_text": "Enter sensor data",
         "function": add_medicao_sensor,
     },
-    6: {"display_text": "List relay status", "function": print_relay_status},
     7: {"display_text": "Enter relay status", "function": add_status_rele},
     8: {"display_text": "Show statistics", "function": show_statistics},
     9: {"display_text": "Exit", "function": lambda: print("Exiting...")},
