@@ -67,18 +67,18 @@ Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
 ## 🔧 Como executar o código
 
-### Setting Up the Python Virtual Environment
+### Configurando o Ambiente Virtual Python
 
-Follow these steps to create and use a virtual environment for this project.
+Siga estes passos para criar e usar um ambiente virtual para este projeto.
 
-#### 1. Create the Virtual Environment
-Run this command to create a virtual environment in a folder named `venv`:
+#### 1. Crie o Ambiente Virtual
+Execute este comando para criar um ambiente virtual em uma pasta chamada `venv`:
 
 ```bash
 python3 -m venv venv
 ```
 
-#### 2. Activate the Virtual Environment
+#### 2. Ative o Ambiente Virtual
 - **Linux / MacOS**: 
   ```bash
   source venv/bin/activate
@@ -89,17 +89,16 @@ python3 -m venv venv
   venv\Scripts\activate
   ```
 
-When activated, your terminal will show `(venv)` at the beginning of the prompt.
+Quando ativado, seu terminal mostrará `(venv)` no início do prompt.
 
-#### 3. Install Dependencies
-Once the environment is active, install the required packages:
+#### 3. Instale as Dependências
+Uma vez que o ambiente esteja ativo, instale os pacotes necessários:
 
 ```bash
 pip install -r requirements.txt
 ```
-
-#### 4. Deactivate the Virtual Environment
-To stop using the virtual environment, deactivate it by running:
+#### 4. Desative o Ambiente Virtual
+Para parar de usar o ambiente virtual, desative-o executando:
 
 ```bash
 deactivate
@@ -107,41 +106,24 @@ deactivate
 
 ---
 
-#### Additional Notes
+#### Notas Adicionais
 
-- **Save New Dependencies**: After installing new packages, save them to `requirements.txt`:
+- **Salvar Novas Dependências**: Após instalar novos pacotes, salve-os em `requirements.txt`:
   ```bash
   pip freeze > requirements.txt
   ```
 
+### Instruções de Configuração do Projeto
 
+Para executar a configuração inicial e inicializar o banco de dados para este projeto, siga a instrução abaixo:
 
+#### Execute o Script de Inicialização do Banco de Dados
 
-
-### Setup Instructions for the Project
-
-To run the initial setup and initialize the database for this project, follow the instruction below:
-
-#### Run the Database Initialization Script
-
-Navigate to the project folder and execute the following command to run the database initialization script, which will set up the environment and create the necessary databases:
+Navegue até a pasta do projeto e execute o seguinte comando para rodar o script de inicialização do banco de dados, que configurará o ambiente e criará os bancos de dados necessários:
 
 ```bash
 python3 scripts/initialize_db.py
 ```
-
-## 🗃 Histórico de lançamentos
-
-* 0.5.0 - XX/XX/2024
-    * 
-* 0.4.0 - XX/XX/2024
-    * 
-* 0.3.0 - XX/XX/2024
-    * 
-* 0.2.0 - XX/XX/2024
-    * 
-* 0.1.0 - XX/XX/2024
-    *
 
 ## 📋 Licença
 
