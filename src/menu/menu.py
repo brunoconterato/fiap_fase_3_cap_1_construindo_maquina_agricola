@@ -49,9 +49,16 @@ def add_medicao_sensor():
         # List available sensors for reference
         print("Available sensors:")
         print_sensores()
+        
+        sensors = get_sensores()
 
         # Get user input for sensor data
-        id_sensor = int(input("\nEnter the sensor ID: "))
+        while True:
+            id_sensor = int(input("\nEnter the sensor ID: "))
+            if id_sensor in [sensor[0] for sensor in sensors]:
+                break
+            else:
+                print("Invalid sensor ID. Please enter a valid sensor ID from the list.")
         valor = float(input("\nEnter the measurement value: "))
 
         # Insert data into Medicao_Sensor
