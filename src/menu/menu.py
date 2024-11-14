@@ -78,7 +78,15 @@ def add_status_rele():
         print_relays()
         
         relay_id = int(input("\nEnter the relay ID: "))
-        estado = bool(int(input("\nEnter the relay status (0 or 1): ")))
+        
+        # Validate relay status input
+        while True:
+            estado_input = input("\nEnter the relay status (0 or 1): ")
+            if estado_input in ["0", "1"]:
+                estado = bool(int(estado_input))
+                break
+            else:
+                print("Invalid input. Please enter 0 or 1.")
 
         # Insert data into Status_Rele
         try:
