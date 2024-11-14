@@ -1,29 +1,33 @@
-#include <DHT.h>
+#include "DHTesp.h"
 
-#define P_green_buttonPin 26
-#define K_blue_buttonPin 22
-#define LDR_PIN 35
-#define DHT_PIN 17
-#define DHT_TYPE DHT22   // DHT sensor type is DHT22
-#define RELE_PIN 21  // Pino de controle do relé
+#define P_green_buttonPin 26  // Pino do botão P (fósforo)
+#define K_blue_buttonPin 22   // Pino do botão K (potássio)
+
+#define LDR_PIN 35            // Pino do sensor LDR
+#define DHT_PIN 15            // Pino do sensor DHT
+#define RELE_PIN 21           // Pino de controle do relé
+
+DHTesp dhtSensor;
 
 const double rl10 = 50000.0; // LDR resistance at 10 lux
 const double ldrGamma = 0.7;
 
-DHT dht(DHT_PIN, DHT_TYPE);
+// Limites para pH e umidade
+const float pH_min = 5.5;  // pH mínimo aceitável para o solo
+const float pH_max = 7.5;  // pH máximo aceitável para o solo
+const float humidity_threshold = 30.0;  // Umidade mínima aceitável (em %)
 
 bool isBombaLigada = false;
 
 void setup() {
+  Serial.begin(115200);
+
   pinMode(P_green_buttonPin, INPUT_PULLUP);
   pinMode(K_blue_buttonPin, INPUT_PULLUP);
   pinMode(LDR_PIN, INPUT);
   pinMode(RELE_PIN, OUTPUT);  // Configura o pino do relé como saída
 
-  // put your setup code here, to run once:
-  Serial.begin(115200);
-  Serial.println("Hello, ESP32!");
-  Serial.println();
+  dhtSensor.setup(DHT_PIN, DHTesp::DHT22);
 }
 
 void loop() {
@@ -43,7 +47,6 @@ void loop() {
   }
 
   double pH = read_ldr();
-
   double humidity = read_dht();
 
   if (deveIrrigar(K_buttonState == LOW, P_buttonState == LOW, pH, humidity)) {
@@ -74,15 +77,16 @@ double read_ldr() {
 }
 
 double read_dht() {
-    double humidity = dht.readHumidity();
-    if (isnan(humidity)) {
+    TempAndHumidity data = dhtSensor.getTempAndHumidity();
+
+    if (isnan(data.humidity)) {
         Serial.println("Erro ao ler o sensor DHT22");
         return NAN;
     } else {
         Serial.print("Umidade: ");
-        Serial.print(humidity);
+        Serial.print(data.humidity);
         Serial.println(" %");
-        return humidity;
+        return data.humidity;
     }
 }
 
@@ -90,10 +94,11 @@ void liga_rele() {
   // Liga o relé (ativa a bomba de água)
   if (!isBombaLigada) {
     isBombaLigada = true;
-    Serial.println(("Acionando bomba."));
+    Serial.println("Acionando bomba.");
   } else {
-    Serial.println(("Bomba se mantém acionada."));
+    Serial.println("Bomba se mantém acionada.");
   }
+
   digitalWrite(RELE_PIN, HIGH);
 }
 
@@ -101,20 +106,16 @@ void desliga_rele() {
   // Desliga o relé (ativa a bomba de água)
   if (isBombaLigada) {
     isBombaLigada = false;
-    Serial.println(("Desligando bomba."));
+    Serial.println("Desligando bomba.");
   } else {
-    Serial.println(("Bomba se mantém desligada."));
+    Serial.println("Bomba se mantém desligada.");
   }
+
   digitalWrite(RELE_PIN, LOW);
 }
 
 // Função que retorna 'true' ou 'false' para irrigação
 bool deveIrrigar(bool K, bool P, float pH, float humidity) {
-  // Limites para pH e umidade
-  float pH_min = 5.5;  // pH mínimo aceitável para o solo
-  float pH_max = 7.5;  // pH máximo aceitável para o solo
-  float humidity_threshold = 30.0;  // Umidade mínima aceitável (em %)
-
   // Lógica de decisão para irrigação
   if (humidity < humidity_threshold) {
     // Se a umidade estiver abaixo do limite, irrigar imediatamente
@@ -122,15 +123,17 @@ bool deveIrrigar(bool K, bool P, float pH, float humidity) {
     return true;
   }
 
-  if (!K || !P) {
-    // Se os níveis de Potássio ou Fósforo estiverem baixos, é necessário irrigar para ajudar na absorção de nutrientes
-    Serial.println("Irrigação recomendada. Motivo: baixo nível de K ou P.");
+  if (pH < pH_min || pH > pH_max) {
+    // Se o pH estiver fora do intervalo ideal (5.5-7.5), irrigar para tentar corrigir o pH
+    Serial.print("Irrigação recomendada. Motivo: pH fora da faixa recomendada (");
+    Serial.print(pH);
+    Serial.println(").");
     return true;
   }
 
-  if (pH < pH_min || pH > pH_max) {
-    // Se o pH estiver fora do intervalo ideal (5.5-7.5), irrigar para tentar corrigir o pH
-    Serial.println("Irrigação recomendada. Motivo: pH fora da faixa recomendada.");
+  if (!K || !P) {
+    // Se os níveis de Potássio ou Fósforo estiverem baixos, é necessário irrigar para ajudar na absorção de nutrientes
+    Serial.println("Irrigação recomendada. Motivo: baixo nível de K ou P.");
     return true;
   }
 
