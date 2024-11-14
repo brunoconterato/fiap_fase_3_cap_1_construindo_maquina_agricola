@@ -1,6 +1,7 @@
 from typing import Callable, TypedDict, Dict
 from src.db.db import (
     get_medicoes,
+    get_relays,
     get_sensores,
     get_status_rele,
     get_tipos_sensores,
@@ -30,6 +31,11 @@ def print_medicoes():
     for medicao in medicoes:
         print(medicao)
 
+def print_relays():
+    relays = get_relays()
+    print("\nRelays:")
+    for relay in relays:
+        print(relay)
 
 # Function to add data to Medicao_Sensor
 def add_medicao_sensor():
@@ -58,10 +64,14 @@ def print_relay_status():
     for s in status:
         print(s)
 
-
 def add_status_rele():
     try:
         # Get user input for relay status
+        relays = get_relays()
+        print("Available relays:")
+        for relay in relays:
+            print(relay)
+        
         relay_id = int(input("\nEnter the relay ID: "))
         estado = bool(int(input("\nEnter the relay status (0 or 1): ")))
 
@@ -112,15 +122,16 @@ menu_options: MenuOptions = {
         "function": print_tipos_sensores,
     },
     2: {"display_text": "List available sensors", "function": print_sensores},
-    3: {"display_text": "List sensor data", "function": print_medicoes},
-    4: {
+    3: {"display_text": "List available relays", "function": print_relays},
+    4: {"display_text": "List sensor data", "function": print_medicoes},
+    5: {
         "display_text": "Enter sensor data",
         "function": add_medicao_sensor,
     },
-    5: {"display_text": "List relay status", "function": print_relay_status},
-    6: {"display_text": "Enter relay status", "function": add_status_rele},
-    7: {"display_text": "Show statistics", "function": show_statistics},
-    8: {"display_text": "Exit", "function": lambda: print("Exiting...")},
+    6: {"display_text": "List relay status", "function": print_relay_status},
+    7: {"display_text": "Enter relay status", "function": add_status_rele},
+    8: {"display_text": "Show statistics", "function": show_statistics},
+    9: {"display_text": "Exit", "function": lambda: print("Exiting...")},
 }
 
 
@@ -137,7 +148,7 @@ def run_menu():
         if choice.isdigit():
             choice = int(choice)
             if choice in menu_options:
-                if choice == 8:
+                if choice == 9:
                     print(
                         "\nOption selected: ",
                         choice,

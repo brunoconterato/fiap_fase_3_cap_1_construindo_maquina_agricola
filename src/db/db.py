@@ -26,6 +26,13 @@ def get_medicoes():
         return cursor.fetchall()
 
 
+def get_relays():
+    with sqlite3.connect(DB_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM Rele")
+        return cursor.fetchall()
+
+
 def insert_medicao_sensor(id_sensor, valor):
     # Check id_sensor exists
     sensors = get_sensores()
