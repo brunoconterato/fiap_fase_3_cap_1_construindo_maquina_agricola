@@ -126,7 +126,7 @@ O diagrama completo das conexões dos sensores e módulos está disponível em [
 - **Código em C++ (`sketch.ino`)**:
   - Implementa a lógica de controle no ESP32.
   - Inclui funções para leitura dos sensores, lógica de decisão e controle do relé.
-  - Para detalhes do código, consulte o projeto no [Wokwi](https://wokwi.com/projects/414146597880886273).
+  - Para detalhes do código, consulte o projeto no [Wokwi](https://wokwi.com/projects/414492759278919681).
 - **Scripts em Python**:
   - **`initialize_db.py`**: Inicializa o banco de dados SQLite e cria as tabelas necessárias.
   - **`db.py`**: Contém funções para inserir e recuperar dados do banco de dados.
