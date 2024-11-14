@@ -1,5 +1,13 @@
 from typing import Callable, TypedDict, Dict
-from src.db.db import get_medicoes, get_sensores, get_status_rele, get_tipos_sensores, insert_medicao_sensor, insert_status_rele
+from src.db.db import (
+    get_medicoes,
+    get_sensores,
+    get_status_rele,
+    get_tipos_sensores,
+    insert_medicao_sensor,
+    insert_status_rele,
+)
+import pandas as pd
 
 
 def print_tipos_sensores():
@@ -14,7 +22,8 @@ def print_sensores():
     print("\nSensors:")
     for sensor in sensores:
         print(sensor)
-        
+
+
 def print_medicoes():
     medicoes = get_medicoes()
     print("\nSensor data:")
@@ -41,17 +50,19 @@ def add_medicao_sensor():
             print(f"An error occurred: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")
-        
+
+
 def print_relay_status():
     status = get_status_rele()
     print("\nRelay status:")
     for s in status:
         print(s)
 
+
 def add_status_rele():
     try:
         # Get user input for relay status
-        estado = bool(input("\nEnter the relay status (0 or 1): "))
+        estado = bool(int(input("\nEnter the relay status (0 or 1): ")))
 
         # Insert data into Status_Rele
         try:
@@ -61,6 +72,31 @@ def add_status_rele():
             print(f"An error occurred: {e}")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+def show_statistics():
+    # Get sensor data
+    medicoes = get_medicoes()
+    medicoes_df = pd.DataFrame(
+        medicoes, columns=["id_medicao", "id_sensor", "valor", "data_hora"]
+    )
+
+    # Get relay status
+    status = get_status_rele()
+    status_df = pd.DataFrame(status, columns=["id_status", "estado", "data_hora"])
+
+    # Print statistics of measures grouped by sensor, only for "valor" column
+    print("\nSensor values statistics:")
+    print(medicoes_df.groupby("id_sensor")["valor"].describe())
+
+    # Print statistics of relay status
+    print("\nRelay status:")
+    print(status_df["estado"].describe())
+    
+    # Print the number os states for relay status
+    print("\nCount relay status:")
+    print(status_df["estado"].value_counts())
+
 
 class MenuItem(TypedDict):
     display_text: str
@@ -82,7 +118,8 @@ menu_options: MenuOptions = {
     },
     5: {"display_text": "List relay status", "function": print_relay_status},
     6: {"display_text": "Enter relay status", "function": add_status_rele},
-    7: {"display_text": "Exit", "function": lambda: print("Exiting...")},
+    7: {"display_text": "Show statistics", "function": show_statistics},
+    8: {"display_text": "Exit", "function": lambda: print("Exiting...")},
 }
 
 
@@ -99,7 +136,7 @@ def run_menu():
         if choice.isdigit():
             choice = int(choice)
             if choice in menu_options:
-                if choice == 7:
+                if choice == 8:
                     print(
                         "\nOption selected: ",
                         choice,
