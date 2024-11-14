@@ -35,6 +35,7 @@ Para mais informações, acesse:
 - [Lógica de irrigação](./document/other/irrigation_logic.md)
 - [Diagrama de conexão dos sensores](./document/other/sensor_diagram.md)
 - [Código-fonte no Wokwi](https://wokwi.com/projects/414146597880886273)
+- [Modelo Entidade-Relacionamento](./document/other/MER.md)
 
 ---
 
