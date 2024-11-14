@@ -77,8 +77,13 @@ def add_status_rele():
         print("Available relays:")
         print_relays()
         
-        relay_id = int(input("\nEnter the relay ID: "))
-        
+        while True:
+            relay_id = int(input("\nEnter the relay ID: "))
+            if relay_id in [relay[0] for relay in relays]:
+                break
+            else:
+                print("Invalid relay ID. Please enter a valid relay ID from the list.")
+            
         # Validate relay status input
         while True:
             estado_input = input("\nEnter the relay status (0 or 1): ")
