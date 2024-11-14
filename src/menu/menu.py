@@ -62,11 +62,12 @@ def print_relay_status():
 def add_status_rele():
     try:
         # Get user input for relay status
+        relay_id = int(input("\nEnter the relay ID: "))
         estado = bool(int(input("\nEnter the relay status (0 or 1): ")))
 
         # Insert data into Status_Rele
         try:
-            insert_status_rele(estado)
+            insert_status_rele(relay_id, estado)
             print("Relay status added successfully.")
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -83,19 +84,19 @@ def show_statistics():
 
     # Get relay status
     status = get_status_rele()
-    status_df = pd.DataFrame(status, columns=["id_status", "estado", "data_hora"])
+    status_df = pd.DataFrame(status, columns=["id_status", "id_rele", "estado", "data_hora"])
 
     # Print statistics of measures grouped by sensor, only for "valor" column
     print("\nSensor values statistics:")
     print(medicoes_df.groupby("id_sensor")["valor"].describe())
 
-    # Print statistics of relay status
+    # Print statistics of relay status by relay
     print("\nRelay status:")
-    print(status_df["estado"].describe())
+    print(status_df.groupby("id_rele")["estado"].describe())
     
     # Print the number os states for relay status
     print("\nCount relay status:")
-    print(status_df["estado"].value_counts())
+    print(status_df.groupby("id_rele")["estado"].value_counts())
 
 
 class MenuItem(TypedDict):

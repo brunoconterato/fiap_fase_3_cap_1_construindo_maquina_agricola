@@ -51,14 +51,14 @@ def get_status_rele():
         cursor.execute("SELECT * FROM Status_Rele")
         return cursor.fetchall()
     
-def insert_status_rele(estado):
+def insert_status_rele(relay_id, estado):
     with sqlite3.connect(DB_PATH) as conn:
         cursor = conn.cursor()
         cursor.execute(
             """
-            INSERT INTO Status_Rele (estado, data_hora)
-            VALUES (?, ?)
+            INSERT INTO Status_Rele (id_rele, estado, data_hora)
+            VALUES (?, ?, ?)
             """,
-            (estado, datetime.now()),
+            (relay_id, estado, datetime.now()),
         )
         conn.commit()

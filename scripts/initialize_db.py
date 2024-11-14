@@ -35,13 +35,24 @@ if __name__ == "__main__":
         FOREIGN KEY (id_sensor) REFERENCES Sensor(id_sensor)
     );
     ''')
+    
+    # Criar a tabela Rele
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS Rele (
+        id_rele INTEGER PRIMARY KEY AUTOINCREMENT,
+        nome_rele TEXT NOT NULL,
+        localizacao TEXT NOT NULL
+    );
+    ''')
 
     # Criar a tabela Status_Rele
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS Status_Rele (
         id_status INTEGER PRIMARY KEY AUTOINCREMENT,
+        id_rele INTEGER,
         estado BOOLEAN NOT NULL,  -- true para ligado, false para desligado
-        data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        data_hora TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (id_rele) REFERENCES Rele(id_rele)
     );
     ''')
 
@@ -66,6 +77,13 @@ if __name__ == "__main__":
         (3, 'Sensor pH', 'Setor A'),
         (4, 'Sensor Umidade', 'Setor A')
     ])
+    
+        
+    # Inserir um relé inicial na tabela Rele
+    cursor.execute('''
+    INSERT INTO Rele (nome_rele, localizacao)
+    VALUES (?, ?)
+    ''', ('Rele A', 'Setor A'))
 
     # Salvar as alterações e fechar a conexão
     conn.commit()
