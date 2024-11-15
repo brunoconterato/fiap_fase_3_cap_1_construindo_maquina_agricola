@@ -24,7 +24,7 @@ O diagrama Wokwi descreve um circuito que simula o monitoramento de nutrientes n
 3. **Sensor DHT22 (dht1)** (Mede Umidade do Solo):
    - **GND** → **GND** do ESP32
    - **VCC** → **3.3V** do ESP32
-   - **SDA** → **Pino 17** do ESP32
+   - **SDA** → **Pino 15** do ESP32
 
 4. **LDR (ldr1)** (Simula pH do Solo):
    - **VCC** → **5V** do ESP32
