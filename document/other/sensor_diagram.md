@@ -40,4 +40,4 @@ O diagrama Wokwi descreve um circuito que simula o monitoramento de nutrientes n
 
 Essas conexões formam um sistema que pode ser utilizado para simular o monitoramento de nutrientes e umidade do solo, além de controlar a irrigação automaticamente por meio de um relé acionado pela lógica do código no ESP32.
 
-![Diagrama dos Sensores](../../assets/diagrama_sensores.jpg)
+![Diagrama dos Sensores](../../assets/diagrama_sensores.png)
