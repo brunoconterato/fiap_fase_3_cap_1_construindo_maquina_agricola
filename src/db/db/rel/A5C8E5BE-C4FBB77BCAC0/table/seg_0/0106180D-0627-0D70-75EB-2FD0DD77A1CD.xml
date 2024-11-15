@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0106180D-0627-0D70-75EB-2FD0DD77A1CD" name="Rele">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:35:05 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_rele" id="B6E0BB38-BDAB-9259-FC1E-E9135236164F">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:35:34 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nome_rele" id="144227F2-3699-3F43-44B7-6B6235947864">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:35:34 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="localizacao" id="3DE960BD-CCE4-9556-9641-E8122E705476">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:35:34 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="40323CCE-B766-E06E-3098-C82D2E9E7C3F" name="Rele_PK">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:35:34 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6E0BB38-BDAB-9259-FC1E-E9135236164F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

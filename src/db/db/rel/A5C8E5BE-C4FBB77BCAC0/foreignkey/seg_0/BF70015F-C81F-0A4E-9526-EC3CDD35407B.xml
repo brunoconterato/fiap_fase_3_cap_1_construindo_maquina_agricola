@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BF70015F-C81F-0A4E-9526-EC3CDD35407B" containerWithKeyObject="82591A9F-B0A1-89CE-DE89-15AD84055C79" localFKIndex="EBDD0B68-5FDB-8237-8B0B-7D4CAD74ADDD" name="Status_Rele_Rele_FK">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:39:11 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<referredTableLongName>Rele</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>0106180D-0627-0D70-75EB-2FD0DD77A1CD</referredTableID>
+<keyObject>40323CCE-B766-E06E-3098-C82D2E9E7C3F</keyObject>
+<referredKeyID>40323CCE-B766-E06E-3098-C82D2E9E7C3F</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_rele</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

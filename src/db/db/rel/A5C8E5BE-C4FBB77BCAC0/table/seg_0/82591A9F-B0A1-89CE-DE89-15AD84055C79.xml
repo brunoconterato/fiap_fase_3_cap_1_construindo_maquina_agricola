@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="82591A9F-B0A1-89CE-DE89-15AD84055C79" name="Status_Rele">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:36:47 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_status" id="194C0D27-AADE-214A-BD88-3F28151B4BF6">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:37:28 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_rele" id="90906E1C-35A1-6F93-03D6-FF8C9B3B519D">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:37:28 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BF70015F-C81F-0A4E-9526-EC3CDD35407B" referredColumn="B6E0BB38-BDAB-9259-FC1E-E9135236164F"/>
+</associations>
+</Column>
+<Column name="estado" id="AEA8F536-D8F5-4128-A723-63A7E4BFAC15">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:37:28 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_hora" id="4262A6B4-91FC-B1AB-6624-C0C2130FCE81">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:37:28 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT046</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="31DEDF57-06CB-2458-D254-43546902B023" name="Status_Rele_PK">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:37:28 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="194C0D27-AADE-214A-BD88-3F28151B4BF6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EBDD0B68-5FDB-8237-8B0B-7D4CAD74ADDD" name="Status_Rele_Rele_FK">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:39:11 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90906E1C-35A1-6F93-03D6-FF8C9B3B519D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

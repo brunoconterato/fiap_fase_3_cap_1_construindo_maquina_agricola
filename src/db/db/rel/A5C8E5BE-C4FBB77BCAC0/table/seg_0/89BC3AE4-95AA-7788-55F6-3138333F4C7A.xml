@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="89BC3AE4-95AA-7788-55F6-3138333F4C7A" name="Medicao_Sensor">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:32:36 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_medicao" id="D2C3BDE5-BFEF-2729-2C84-DCCC0D7C6C13">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:33:41 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_sensor" id="821BD0FD-8709-69C5-0A79-8455C17CB063">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:33:41 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="142BB380-645D-34E2-BA2D-8A91CE91EBBC" referredColumn="DEEF585F-41C4-130A-F0FA-B152F9BBDDD0"/>
+</associations>
+</Column>
+<Column name="valor" id="9C345D15-0FAE-18BF-C335-7AE0C6957B6E">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:33:41 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT022</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_hora" id="B55E7C66-A7A3-5BF8-A057-A76E0D81D3AE">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:33:41 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT046</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="22A65E55-FF7A-2CA1-B249-E83B6261ABDE" name="Medicao_Sensor_PK">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:33:41 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D2C3BDE5-BFEF-2729-2C84-DCCC0D7C6C13"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E8D8B4BD-0D60-727F-3DE9-8B3DC81BCB28" name="Medicao_Sensor_Sensor_FK">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:34:50 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="821BD0FD-8709-69C5-0A79-8455C17CB063"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

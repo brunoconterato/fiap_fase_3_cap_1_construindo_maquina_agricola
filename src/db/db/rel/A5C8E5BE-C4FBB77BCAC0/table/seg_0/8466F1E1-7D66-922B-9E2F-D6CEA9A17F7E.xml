@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8466F1E1-7D66-922B-9E2F-D6CEA9A17F7E" name="Tipo_Sensor">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:20:12 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_tipo" id="ABB4D17B-D7E9-3C50-D6AD-FCFE7DD1415E">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:21:08 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nome" id="6D7C2293-EB0B-3BAF-6841-97114339DEE8">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:21:08 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descricao" id="A10584A7-36A0-4991-9F72-FBC5926CED8B">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:21:08 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT037</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C851DEDB-5F5A-4FD9-A2A0-BD4780AAC917" name="Tipo_Sensor_PK">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:27:02 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ABB4D17B-D7E9-3C50-D6AD-FCFE7DD1415E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

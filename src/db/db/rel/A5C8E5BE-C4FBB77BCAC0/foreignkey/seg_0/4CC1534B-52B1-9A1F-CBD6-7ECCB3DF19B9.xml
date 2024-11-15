@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4CC1534B-52B1-9A1F-CBD6-7ECCB3DF19B9" containerWithKeyObject="C57440E2-3165-C867-FDB7-3DBA9F7BF520" localFKIndex="2C3F3FA1-AF4F-6849-4DA1-21D99333D31C" name="Sensor_Tipo_Sensor_FK">
+<createdBy>besser</createdBy>
+<createdTime>2024-11-15 00:32:22 UTC</createdTime>
+<ownerDesignName>db</ownerDesignName>
+<referredTableLongName>Tipo_Sensor</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8466F1E1-7D66-922B-9E2F-D6CEA9A17F7E</referredTableID>
+<keyObject>C851DEDB-5F5A-4FD9-A2A0-BD4780AAC917</keyObject>
+<referredKeyID>C851DEDB-5F5A-4FD9-A2A0-BD4780AAC917</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_tipo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
