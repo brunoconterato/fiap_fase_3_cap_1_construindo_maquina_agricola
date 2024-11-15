@@ -164,6 +164,10 @@ Resumidamente:
    - O sistema iniciará automaticamente a leitura dos sensores e controle da irrigação.
    - Dados serão registrados no banco de dados para análise posterior.
 
+## Vídeo de demonstração
+
+Um vídeo demonstrativo do sistema em funcionamento está disponível em [Vídeo de Demonstração](https://youtu.be/xFps6HnP7jE).
+
 ## Conclusão
 
 Este projeto demonstra a implementação de um sistema de irrigação automatizado, combinando sensores, controle eletrônico e armazenamento de dados. A solução visa otimizar o uso de recursos hídricos na agricultura, promovendo práticas sustentáveis e aumentando a eficiência produtiva.

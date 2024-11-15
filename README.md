@@ -36,6 +36,7 @@ Para mais informações, acesse:
 - [Diagrama de conexão dos sensores](./document/other/sensor_diagram.md)
 - [Código-fonte no Wokwi](https://wokwi.com/projects/414492759278919681)
 - [Modelo Entidade-Relacionamento](./document/other/MER.md)
+- [Video demonstrativo](https://youtu.be/xFps6HnP7jE)
 
 ---
 
