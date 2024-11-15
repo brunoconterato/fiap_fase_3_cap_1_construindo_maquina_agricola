@@ -31,3 +31,6 @@
     - **Tipo_Sensor** → **Sensor**: Um-para-Muitos (Um `Tipo_Sensor` pode estar associado a múltiplos registros de `Sensor`)
     - **Sensor** → **Medicao_Sensor**: Um-para-Muitos (Um `Sensor` pode ter múltiplos registros de `Medicao_Sensor`)
     - **Rele** → **Status_Rele**: Um-para-Muitos (Um `Rele` pode ter múltiplos registros de `Status_Rele`)
+
+3. **DER**:
+    - ![DER](../../assets/der.png)
